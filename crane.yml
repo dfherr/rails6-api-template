@@ -1,0 +1,11 @@
+prefix: ''
+services:
+  api:
+    image: dfherr/rails6-api-template
+    networks: ["dev"]
+    interactive: true
+    tty: true
+    publish: ["3000:3000"]
+    volume: ["api:/api"]
+networks:
+  dev:

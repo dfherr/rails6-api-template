@@ -1,0 +1,9 @@
+#! /bin/bash
+
+set -e
+
+# Start server
+bundle check || bundle install
+
+# remove old server pid file, so we can boot multiple instances at once when code is volumed
+bundle exec rails db:prepare && rm -f /api/tmp/pids/server.pid && bundle exec rails server
